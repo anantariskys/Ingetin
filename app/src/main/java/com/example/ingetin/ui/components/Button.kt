@@ -1,3 +1,4 @@
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.wrapContentSize
@@ -13,13 +14,15 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import com.example.ingetin.ui.theme.Primary
+import com.example.ingetin.ui.theme.Secondaru
 
 @Composable
 fun CustomButton(
     text: String = "Login",
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
-    backgroundColor: Color = Color(0xFF6200EA), // Default purple color
+    backgroundColor: Color = Primary, // Default purple color
     textColor: Color = Color.White,
     cornerRadius: Dp = 8.dp
 ) {
@@ -41,10 +44,18 @@ fun CustomButton(
 @Preview(showBackground = true)
 @Composable
 fun CustomButtonPreview() {
-    CustomButton(
-        text = "Login",
-        onClick = { /* Do nothing for preview */ },
-        backgroundColor = Color(0xFF6200EA),
-        textColor = Color.White
-    )
+   Column {
+       CustomButton(
+           text = "Login",
+           onClick = { /* Do nothing for preview */ },
+           backgroundColor = Primary,
+           textColor = Color.White
+       )
+       CustomButton(
+           text = "Login",
+           onClick = { /* Do nothing for preview */ },
+           backgroundColor = Secondary,
+           textColor = Color.White
+       )
+   }
 }

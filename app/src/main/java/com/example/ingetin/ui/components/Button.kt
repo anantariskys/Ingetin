@@ -1,6 +1,8 @@
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
@@ -15,7 +17,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.example.ingetin.ui.theme.Primary
-import com.example.ingetin.ui.theme.Secondaru
+import com.example.ingetin.ui.theme.Secondary
 
 @Composable
 fun CustomButton(
@@ -31,12 +33,16 @@ fun CustomButton(
         colors = ButtonDefaults.buttonColors(containerColor = backgroundColor),
         shape = RoundedCornerShape(cornerRadius),
         modifier = modifier
-            .wrapContentSize()
+            .width(300.dp)
+            .height(50.dp)
+
     ) {
         Text(
             text = text,
             color = textColor,
-            style = MaterialTheme.typography.bodyLarge.copy(fontWeight = FontWeight.Bold)
+            style = MaterialTheme.typography.bodyLarge.copy(fontWeight = FontWeight.Bold),
+            modifier = Modifier.padding(8.dp)
+
         )
     }
 }
@@ -46,13 +52,13 @@ fun CustomButton(
 fun CustomButtonPreview() {
    Column {
        CustomButton(
-           text = "Login",
+           text = "Register",
            onClick = { /* Do nothing for preview */ },
            backgroundColor = Primary,
            textColor = Color.White
        )
        CustomButton(
-           text = "Login",
+           text = "Send",
            onClick = { /* Do nothing for preview */ },
            backgroundColor = Secondary,
            textColor = Color.White

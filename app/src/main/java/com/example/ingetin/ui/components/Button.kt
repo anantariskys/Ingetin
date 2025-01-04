@@ -1,4 +1,5 @@
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -57,6 +58,7 @@ fun CustomButtonPreview() {
            backgroundColor = Primary,
            textColor = Color.White
        )
+       Spacer(modifier = Modifier.height(16.dp))
        CustomButton(
            text = "Send",
            onClick = { /* Do nothing for preview */ },

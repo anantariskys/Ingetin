@@ -15,6 +15,7 @@ import androidx.navigation.compose.rememberNavController
 
 import com.example.ingetin.ui.screens.OnboardingScreen
 import com.example.ingetin.ui.screens.LoginScreen
+import com.example.ingetin.ui.screens.SplashScreen
 import com.example.ingetin.ui.theme.IngetinTheme
 
 class MainActivity : ComponentActivity() {
@@ -22,11 +23,11 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             IngetinTheme {
-                // A surface container using the 'background' color from the theme
+
                 Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
-                    // Set up the navigation
-                    val navController = rememberNavController() // Initialize NavController
-                    SetupNavGraph(navController) // Pass navController to setup navigation
+
+                    val navController = rememberNavController()
+                    SetupNavGraph(navController)
                 }
             }
         }
@@ -35,13 +36,15 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun SetupNavGraph(navController: NavHostController) {
-    // Define NavHost
-    NavHost(navController = navController, startDestination = "onboarding_screen") {
+    NavHost(navController = navController, startDestination = "splash_screen") {
         composable("onboarding_screen") {
-            OnboardingScreen(navController) // Pass navController to OnboardingScreen
+            OnboardingScreen(navController)
         }
         composable("login_screen") {
-            LoginScreen() // Define your LoginScreen here
+            LoginScreen()
+        }
+        composable("splash_screen"){
+            SplashScreen(navController)
         }
     }
 }

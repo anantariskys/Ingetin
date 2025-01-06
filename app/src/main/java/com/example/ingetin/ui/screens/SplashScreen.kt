@@ -25,7 +25,10 @@ fun SplashScreen(navController: NavController) {
         delay(500)
         visible.value = true
         delay(2000)
-        navController.navigate("onboarding_screen")
+        navController.navigate("onboarding_screen"
+        ){
+            popUpTo("splash_screen"){inclusive=true}
+        }
     }
 
     Box(
